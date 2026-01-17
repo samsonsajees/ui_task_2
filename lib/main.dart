@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         primaryColor: const Color(0xFF0066FF),
         useMaterial3: true,
       ),
-      home: const SignUpPage(),
+      home: const LoginPage(),
     );
   }
 }
