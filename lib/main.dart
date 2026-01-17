@@ -143,7 +143,7 @@ class LoginPage extends StatelessWidget {
                       onTap: () {},
                       child: const Text(
                         "Forgot password?",
-                        style: TextStyle(color: Color.fromARGB(255, 26, 108, 232), fontWeight: FontWeight.w700, letterSpacing: .1),
+                        style: TextStyle(color: Color.fromARGB(255, 31, 120, 255), fontWeight: FontWeight.w700, letterSpacing: .1),
                       ),
                     ),
                   ),
@@ -155,7 +155,7 @@ class LoginPage extends StatelessWidget {
                     child: ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color.fromARGB(255, 26, 108, 232),
+                        backgroundColor: const Color.fromARGB(255, 27, 118, 255),
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                         elevation: 0,
                       ),
