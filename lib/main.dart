@@ -38,7 +38,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// ------------------- WIDGETS -------------------
 
 class AuthTextField extends StatelessWidget {
   final String hint;

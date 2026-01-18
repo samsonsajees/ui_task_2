@@ -3,13 +3,10 @@ import 'package:flutter/material.dart';
 class AppColors {
   AppColors._();
 
-  // Helper to convert hex string to Color ONCE
   static Color _hexToColor(String hex) {
     return Color(int.parse("FF${hex.replaceAll('#', '')}", radix: 16));
   }
 
-  // Define colors as static final variables
-  // They are calculated once when the app starts
   static final Color primaryBlue = _hexToColor("006FFD");
   static final Color whiteDarkest = _hexToColor("C5C6CC");
   static final Color greyLightest = _hexToColor("8F9098");  
