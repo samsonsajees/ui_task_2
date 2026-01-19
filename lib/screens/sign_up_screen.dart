@@ -1,0 +1,134 @@
+import 'package:flutter/material.dart';
+import 'package:ui_task_2/constants/app_colors.dart';
+import 'package:ui_task_2/widgets/text_field.dart';
+import 'package:ui_task_2/widgets/field_label.dart';
+import 'package:ui_task_2/screens/login_screen.dart';
+
+class SignUpPage extends StatefulWidget {
+  const SignUpPage({super.key});
+
+  @override
+  State<SignUpPage> createState() => _SignUpPageState();
+}
+
+class _SignUpPageState extends State<SignUpPage> {
+  bool isChecked = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: AppColors.white,
+      resizeToAvoidBottomInset: true, 
+      body: SafeArea(
+        child: Column(
+          children: [
+            Expanded(
+              child: SingleChildScrollView(
+                padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SizedBox(height: 24),
+                    Text("Sign up", style: TextStyle(fontSize: 19,color: AppColors.greyDarkest, fontWeight: FontWeight.w900, fontFamily: 'Inter')),
+                    const SizedBox(height: 8),
+                    Text("Create an account to get started", style: TextStyle(fontSize: 14, color: AppColors.greyLight, fontFamily: 'Inter')),
+                    
+                    const SizedBox(height: 24),
+              
+                    const FieldLabel(text: "Name"),
+                    const AuthTextField(hint: "Name"),
+                    
+                    const SizedBox(height: 16),
+              
+                    const FieldLabel(text: "Email Address"),
+                    const AuthTextField(hint: "name@email.com"),
+              
+                    const SizedBox(height: 16),
+              
+                    const FieldLabel(text: "Password"),
+                    const AuthTextField(hint: "Create a password", isPassword: true),
+              
+                    const SizedBox(height: 16),
+              
+                    const AuthTextField(hint: "Confirm password", isPassword: true),
+              
+                    const SizedBox(height: 24),
+              
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          height: 24,
+                          width: 24,
+                          child: Transform.scale(
+                            scale: 1.5,
+                            child: Checkbox(
+                              value: isChecked,
+                              activeColor: AppColors.primaryBlue,
+                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
+                              side: BorderSide(color: AppColors.whiteDarkest, width: 1.3),
+                              onChanged: (v) => setState(() => isChecked = v!),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 12),
+                        Expanded(
+                        child: RichText(
+                          text:TextSpan(
+                            // Set global size and line height for this block here
+                            style: TextStyle(color: AppColors.greyLight, fontSize: 14, height: 1.1,letterSpacing: .2),
+                            children: [
+                              TextSpan(
+                                text: "I've read and agree with the ",
+                                style: TextStyle(color: AppColors.greyLight, fontSize: 14, fontFamily: 'Inter'),
+                              ),
+                              TextSpan(
+                                text: "Terms and   Conditions",
+                                style: TextStyle(color: AppColors.primaryBlue, fontWeight: FontWeight.bold, fontSize: 14, fontFamily: 'Inter'),
+                              ),
+                              TextSpan(
+                                text: " and the ",
+                                style: TextStyle(color: AppColors.greyLight,fontSize: 14, fontFamily: 'Inter'),
+                              ),
+                              TextSpan(
+                                text: "Privacy Policy",
+                                style: TextStyle(color: AppColors.primaryBlue, fontWeight: FontWeight.bold, fontSize: 14, fontFamily: 'Inter'),
+                              ),
+                              TextSpan(text: "."),
+                            ],
+                          ),
+                        ),
+                      )
+                      ],
+                    ),
+                    const SizedBox(height: 24),
+        
+                    SizedBox(
+                      width: double.infinity,
+                      height: 55,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          print("Sign Up pressed");
+                          Navigator.push(
+                            context, 
+                            MaterialPageRoute(builder: (context) => const LoginPage())
+                          );
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: AppColors.primaryBlue,
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                          elevation: 0,
+                        ),
+                        child: Text("Sign Up", style: TextStyle(color: AppColors.white, fontSize: 14, fontWeight: FontWeight.bold)),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
