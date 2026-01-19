@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ui_task_2/constants/app_colors.dart';
 import 'package:ui_task_2/widgets/text_field.dart';
-import 'package:ui_task_2/screens/sign_up_screen.dart';
+import 'package:ui_task_2/screens/signup_screen.dart';
 import 'package:ui_task_2/widgets/social_button.dart';
 
 class LoginPage extends StatelessWidget {
