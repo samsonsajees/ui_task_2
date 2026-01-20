@@ -14,7 +14,7 @@ class PaginationIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisSize: MainAxisSize.min, // Takes minimum space needed
+      mainAxisSize: MainAxisSize.min,
       children: List.generate(itemCount, (index) {
         return Padding(
           padding: const EdgeInsets.only(right: 8.0),
@@ -25,7 +25,6 @@ class PaginationIndicator extends StatelessWidget {
   }
 }
 
-// Private helper widget for the individual dot
 class _PaginationDot extends StatelessWidget {
   final bool isActive;
 

@@ -18,4 +18,5 @@ class AppColors {
   static final Color divider = _hexToColor("D4D6DD");
   static final Color progress = _hexToColor("E8E9F1");
   static final Color selected = _hexToColor("EAF2FF");
+  static final Color listText = _hexToColor("1F1F1F");
 }

@@ -96,9 +96,8 @@ class _InterestsScreenState extends State<InterestsScreen> {
                   padding: const EdgeInsets.symmetric(horizontal: 24.0),
                   child: Column(
                     children: [
-                      // The List
+
                       ListView.separated(
-                        // Important: shrinkWrap and physics ensure it behaves inside the ScrollView
                         shrinkWrap: true, 
                         physics: const NeverScrollableScrollPhysics(),
                         padding: EdgeInsets.zero,
@@ -126,7 +125,6 @@ class _InterestsScreenState extends State<InterestsScreen> {
 
                       const SizedBox(height: 24),
 
-                      // The Button
                       PrimaryButton(
                         text: "Next",
                         onPressed: () {
@@ -134,7 +132,6 @@ class _InterestsScreenState extends State<InterestsScreen> {
                         },
                       ),
                       
-                      // Bottom safety padding
                       const SizedBox(height: 24),
                     ],
                   ),

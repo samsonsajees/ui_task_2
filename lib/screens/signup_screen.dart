@@ -76,7 +76,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         Expanded(
                         child: RichText(
                           text:TextSpan(
-                            // Set global size and line height for this block here
+                            // Sets the global size and line height for the block here
                             style: TextStyle(color: AppColors.greyLight, fontSize: 14, height: 1.1,letterSpacing: .2),
                             children: [
                               TextSpan(

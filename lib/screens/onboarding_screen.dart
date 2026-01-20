@@ -12,10 +12,8 @@ class OnboardingPage extends StatefulWidget {
 }
 
 class _OnboardingPageState extends State<OnboardingPage> {
-  // 1. State variable to track the current page
   int _currentIndex = 0;
 
-  // 2. List of 3 Online Image URLs
   final List<String> _onboardingImages = [
     'https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', // Collaboration/Team
     'https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', // Tech/Development
@@ -28,13 +26,13 @@ class _OnboardingPageState extends State<OnboardingPage> {
       backgroundColor: AppColors.white,
       body: Column(
         children: [
-          // --- SWIPABLE IMAGE SECTION ---
+
           SizedBox(
             height: 506,
             width: double.infinity,
             child: PageView.builder(
               itemCount: _onboardingImages.length,
-              // 3. Update state when user swipes
+
               onPageChanged: (index) {
                 setState(() {
                   _currentIndex = index;
@@ -42,11 +40,11 @@ class _OnboardingPageState extends State<OnboardingPage> {
               },
               itemBuilder: (context, index) {
                 return Container(
-                  color: const Color(0xFFE9F4FF), // Background fallback
+                  color: const Color(0xFFE9F4FF),
                   child: Image.network(
                     _onboardingImages[index],
                     fit: BoxFit.cover,
-                    // Loading builder ensures a nice experience while fetching from web
+
                     loadingBuilder: (context, child, loadingProgress) {
                       if (loadingProgress == null) return child;
                       return Center(
@@ -62,7 +60,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                     errorBuilder: (context, error, stackTrace) => Icon(
                       Icons.broken_image_outlined, 
                       size: 80, 
-                      color: AppColors.primaryBlue.withOpacity(0.3)
+                      color: AppColors.primaryBlue.withValues(alpha: 100),
                     ),
                   ),
                 );
@@ -70,7 +68,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
             ),
           ),
                                   
-          // Bottom Text Section
+
           Expanded(
             flex: 4,
             child: Padding(
@@ -78,7 +76,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Dots Indicator
+
                   SizedBox(height: 16),
                   PaginationIndicator(
                     itemCount: _onboardingImages.length,
