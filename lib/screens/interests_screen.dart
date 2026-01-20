@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ui_task_2/constants/app_colors.dart';
+import 'package:ui_task_2/constants/app_text_styles.dart';
 import 'package:ui_task_2/widgets/primary_button.dart';
 import 'package:ui_task_2/widgets/interest_option.dart';
 import 'package:ui_task_2/constants/interests_list.dart';
@@ -40,22 +41,12 @@ class _InterestsScreenState extends State<InterestsScreen> {
                   children: [
                     Text(
                       "Personalise your experience",
-                      style: TextStyle(
-                        fontSize: 26,
-                        fontWeight: FontWeight.w900,
-                        color: AppColors.greyDarkest,
-                        fontFamily: 'Inter',
-                        letterSpacing: -0.5
-                      ),
+                      style: AppTextStyles.h1.copyWith(color: AppColors.black),
                     ),
                     const SizedBox(height: 16),
                     Text(
                       "Choose your interests.",
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: AppColors.greyLight,
-                        fontFamily: 'Inter',
-                      ),
+                      style: AppTextStyles.bodyM.copyWith(color: AppColors.greyLight),
                     ),
                   ],
                 ),

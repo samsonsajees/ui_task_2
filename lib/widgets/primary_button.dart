@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:ui_task_2/constants/app_colors.dart';
+import 'package:ui_task_2/constants/app_text_styles.dart';
 
 class PrimaryButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
-  final double height=48;
+  final double height;
   final double width=double.infinity;
 
   const PrimaryButton({
     super.key,
     required this.text,
+    this.height = 48,
     required this.onPressed,
   });
 
@@ -27,12 +29,7 @@ class PrimaryButton extends StatelessWidget {
         ),
         child: Text(
           text,
-          style: TextStyle(
-            color: AppColors.white,
-            fontSize: 14,
-            fontWeight: FontWeight.bold,
-            fontFamily: 'Inter',
-          ),
+          style: AppTextStyles.actionM.copyWith(color: AppColors.white),
         ),
       ),
     );

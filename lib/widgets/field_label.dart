@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ui_task_2/constants/app_colors.dart';
+import 'package:ui_task_2/constants/app_text_styles.dart';
 
 class FieldLabel extends StatelessWidget {
   final String text;
@@ -12,7 +13,7 @@ class FieldLabel extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 8.0),
       child: Text(
         text,
-        style: TextStyle(fontWeight: FontWeight.w800, fontSize: 13, color: AppColors.greyDark, fontFamily: 'Inter'),
+        style: AppTextStyles.h5.copyWith(color: AppColors.greyDark),
       ),
     );
   }

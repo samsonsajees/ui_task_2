@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ui_task_2/constants/app_colors.dart';
+import 'package:ui_task_2/constants/app_text_styles.dart';
 import 'package:ui_task_2/screens/interests_screen.dart';
 import 'package:ui_task_2/widgets/pagination_dot.dart';
 import 'package:ui_task_2/widgets/primary_button.dart';
@@ -68,24 +69,13 @@ class _OnboardingPageState extends State<OnboardingPage> {
 
                   Text(
                     "Create a prototype in just a few minutes",
-                    style: TextStyle(
-                      fontSize: 28,
-                      height: 1.1,
-                      fontWeight: FontWeight.w900,
-                      color: AppColors.greyDarkest,
-                      fontFamily: 'Inter',
-                    ),
+                    style: AppTextStyles.h1.copyWith(color: AppColors.black),
                   ),
                   const SizedBox(height: 24),
                   
                   Text(
                     "Enjoy these pre-made components and worry only about creating the best product ever.",
-                    style: TextStyle(
-                      fontSize: 15,
-                      height: 1.4,
-                      color: AppColors.greyLight,
-                      fontFamily: 'Inter',
-                    ),
+                    style: AppTextStyles.bodyS.copyWith(color: AppColors.greyLight),
                   ),
                   const SizedBox(height: 16),
                   const SizedBox(height: 32),

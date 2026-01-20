@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ui_task_2/constants/app_colors.dart';
+import 'package:ui_task_2/constants/app_text_styles.dart';
 
 class InterestOption extends StatelessWidget {
   final String title;
@@ -32,12 +33,7 @@ class InterestOption extends StatelessWidget {
           children: [
             Text(
               title,
-              style: TextStyle(
-                fontSize: 15,
-                fontWeight: FontWeight.w400,
-                color: AppColors.listText,
-                fontFamily: 'Inter',
-              ),
+              style: AppTextStyles.bodyM.copyWith(color:AppColors.listText),
             ),
             if (isSelected)
               SizedBox(child: Icon(Icons.check, color: AppColors.primaryBlue, size: 20)),

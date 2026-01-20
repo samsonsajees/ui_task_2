@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ui_task_2/constants/app_colors.dart';
+import 'package:ui_task_2/constants/app_text_styles.dart';
 import 'package:ui_task_2/screens/onboarding_screen.dart';
 import 'package:ui_task_2/widgets/text_field.dart';
 import 'package:ui_task_2/widgets/field_label.dart';
@@ -30,9 +31,9 @@ class _SignUpPageState extends State<SignUpPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const SizedBox(height: 24),
-                    Text("Sign up", style: TextStyle(fontSize: 19,color: AppColors.greyDarkest, fontWeight: FontWeight.w900, fontFamily: 'Inter')),
+                    Text("Sign up", style: AppTextStyles.h3.copyWith(color: AppColors.black)),
                     const SizedBox(height: 8),
-                    Text("Create an account to get started", style: TextStyle(fontSize: 14, color: AppColors.greyLight, fontFamily: 'Inter')),
+                    Text("Create an account to get started", style: AppTextStyles.bodyS.copyWith(color: AppColors.greyLight)),
                     
                     const SizedBox(height: 24),
               
@@ -81,19 +82,19 @@ class _SignUpPageState extends State<SignUpPage> {
                             children: [
                               TextSpan(
                                 text: "I've read and agree with the ",
-                                style: TextStyle(color: AppColors.greyLight, fontSize: 14, fontFamily: 'Inter'),
+                                style: AppTextStyles.bodyS.copyWith(color: AppColors.greyLight),
                               ),
                               TextSpan(
                                 text: "Terms and   Conditions",
-                                style: TextStyle(color: AppColors.primaryBlue, fontWeight: FontWeight.bold, fontSize: 14, fontFamily: 'Inter'),
+                                style: AppTextStyles.actionM.copyWith(color: AppColors.primaryBlue),
                               ),
                               TextSpan(
                                 text: " and the ",
-                                style: TextStyle(color: AppColors.greyLight,fontSize: 14, fontFamily: 'Inter'),
+                                style: AppTextStyles.bodyS.copyWith(color: AppColors.greyLight),
                               ),
                               TextSpan(
                                 text: "Privacy Policy",
-                                style: TextStyle(color: AppColors.primaryBlue, fontWeight: FontWeight.bold, fontSize: 14, fontFamily: 'Inter'),
+                                style: AppTextStyles.actionM.copyWith(color: AppColors.primaryBlue),
                               ),
                               TextSpan(text: "."),
                             ],

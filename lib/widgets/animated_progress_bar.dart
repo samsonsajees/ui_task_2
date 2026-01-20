@@ -18,7 +18,7 @@ class CustomProgressBar extends StatelessWidget {
           height: 8,
           width: double.infinity,
           decoration: BoxDecoration(
-            color: const Color(0xFFF2F2F5),
+            color: AppColors.progress,
             borderRadius: BorderRadius.circular(4),
           ),
           child: Align(

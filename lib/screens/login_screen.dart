@@ -4,6 +4,7 @@ import 'package:ui_task_2/widgets/text_field.dart';
 import 'package:ui_task_2/screens/signup_screen.dart';
 import 'package:ui_task_2/widgets/social_button.dart';
 import 'package:ui_task_2/widgets/primary_button.dart';
+import 'package:ui_task_2/constants/app_text_styles.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -19,7 +20,7 @@ class LoginPage extends StatelessWidget {
               height: 312,
               width: double.infinity,
               child: Image.asset(
-                'assets/coffee-can.png',
+                'assets/images/coffee-can.png',
                 fit: BoxFit.cover,
               ),
             ),
@@ -33,14 +34,14 @@ class LoginPage extends StatelessWidget {
                 children: [
                   Text(
                     "Welcome!",
-                    style: TextStyle(fontSize: 28,letterSpacing: .3, fontWeight: FontWeight.w900, color: AppColors.black, fontFamily: 'Inter'),
+                    style: AppTextStyles.h1.copyWith(fontSize: 28, color: AppColors.black),
                   ),
                   const SizedBox(height: 24),
                   
                   const AuthTextField(hint: "Email Address"),
                   const SizedBox(height: 16),
                   
-                  const AuthTextField(hint: "Password", isPassword: true),
+                  const AuthTextField(hint: "Password", isPassword: true, ),
                   const SizedBox(height: 16),
 
                   Align(
@@ -51,7 +52,7 @@ class LoginPage extends StatelessWidget {
                       },
                       child: Text(
                         "Forgot password?",
-                        style: TextStyle(color: AppColors.primaryBlue,fontSize: 13, fontWeight: FontWeight.w700, letterSpacing: .1),
+                        style: AppTextStyles.actionM.copyWith(color: AppColors.primaryBlue),
                       ),
                     ),
                   ),
@@ -69,10 +70,10 @@ class LoginPage extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("Not a member? ", style: TextStyle(color: AppColors.greyLight, fontSize: 13, letterSpacing: .1)),
+                        Text("Not a member? ", style: AppTextStyles.bodyS.copyWith(color: AppColors.greyLight)),
                         GestureDetector(
                           onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const SignUpPage())),
-                          child: Text("Register now", style: TextStyle(color: AppColors.primaryBlue, fontWeight: FontWeight.w700,letterSpacing: .1, fontSize: 13)),
+                          child: Text("Register now", style: AppTextStyles.actionM.copyWith(color: AppColors.primaryBlue)),
                         ),
                       ],
                     ),
@@ -82,7 +83,7 @@ class LoginPage extends StatelessWidget {
                   Divider(color: AppColors.divider, thickness: 1),
                   const SizedBox(height: 24),
 
-                  Center(child: Text("Or continue with", style: TextStyle(color: AppColors.greyLight, fontSize: 13))),
+                  Center(child: Text("Or continue with", style: AppTextStyles.bodyS.copyWith(color: AppColors.greyLight))),
                   const SizedBox(height: 16),
 
                   Row(
@@ -90,13 +91,13 @@ class LoginPage extends StatelessWidget {
                     children: [
                       GestureDetector(onTap: () {
                         print("Google sign-in pressed");
-                      }, child: SocialButton(asset: 'assets/google.svg')),
+                      }, child: SocialButton(asset: 'assets/icons/google.svg')),
                       GestureDetector(onTap: () {
                         print("Apple sign-in pressed");
-                      }, child: SocialButton(asset: 'assets/apple.svg')),
+                      }, child: SocialButton(asset: 'assets/icons/apple.svg')),
                       GestureDetector(onTap: () {
                         print("Facebook sign-in pressed");
-                      }, child: SocialButton(asset: 'assets/fb.svg')),
+                      }, child: SocialButton(asset: 'assets/icons/fb.svg')),
                     ],
                   ),
                 ],

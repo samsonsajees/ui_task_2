@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ui_task_2/constants/app_colors.dart';
 import 'package:ui_task_2/screens/login_screen.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        fontFamily: 'Inter',
+        textTheme: GoogleFonts.interTextTheme(),
         scaffoldBackgroundColor: AppColors.white,
         primaryColor: AppColors.primaryBlue,
         useMaterial3: true,
