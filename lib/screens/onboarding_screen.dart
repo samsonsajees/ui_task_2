@@ -3,6 +3,7 @@ import 'package:ui_task_2/constants/app_colors.dart';
 import 'package:ui_task_2/screens/interests_screen.dart';
 import 'package:ui_task_2/widgets/pagination_dot.dart';
 import 'package:ui_task_2/widgets/primary_button.dart';
+import 'package:ui_task_2/widgets/app_network_image.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({super.key});
@@ -32,7 +33,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
             width: double.infinity,
             child: PageView.builder(
               itemCount: _onboardingImages.length,
-
               onPageChanged: (index) {
                 setState(() {
                   _currentIndex = index;
@@ -41,27 +41,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
               itemBuilder: (context, index) {
                 return Container(
                   color: const Color(0xFFE9F4FF),
-                  child: Image.network(
-                    _onboardingImages[index],
+                  child: AppNetworkImage(
+                    imageUrl: _onboardingImages[index],
                     fit: BoxFit.cover,
-
-                    loadingBuilder: (context, child, loadingProgress) {
-                      if (loadingProgress == null) return child;
-                      return Center(
-                        child: CircularProgressIndicator(
-                          value: loadingProgress.expectedTotalBytes != null
-                              ? loadingProgress.cumulativeBytesLoaded / 
-                                loadingProgress.expectedTotalBytes!
-                              : null,
-                          color: AppColors.primaryBlue,
-                        ),
-                      );
-                    },
-                    errorBuilder: (context, error, stackTrace) => Icon(
-                      Icons.broken_image_outlined, 
-                      size: 80, 
-                      color: AppColors.primaryBlue.withValues(alpha: 100),
-                    ),
                   ),
                 );
               },

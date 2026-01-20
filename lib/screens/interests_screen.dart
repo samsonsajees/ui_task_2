@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:ui_task_2/constants/app_colors.dart';
 import 'package:ui_task_2/widgets/primary_button.dart';
 import 'package:ui_task_2/widgets/interest_option.dart';
+import 'package:ui_task_2/constants/interests_list.dart';
+import 'package:ui_task_2/widgets/animated_progress_bar.dart';
 
 class InterestsScreen extends StatefulWidget {
   const InterestsScreen({super.key});
@@ -11,23 +13,11 @@ class InterestsScreen extends StatefulWidget {
 }
 
 class _InterestsScreenState extends State<InterestsScreen> {
-  final List<String> interests = [
-    "User Interface",
-    "User Experience",
-    "User Research",
-    "UX Writing",
-    "User Testing",
-    "Service Design",
-    "Strategy",
-    "Design Systems"
-  ];
-
-  final Set<String> selectedInterests = {};
-
+  
   @override
   Widget build(BuildContext context) {
-    double progress = interests.isNotEmpty 
-        ? selectedInterests.length / interests.length 
+    double progress = InterestsList.interests.isNotEmpty 
+        ? InterestsList.selectedInterests.length / InterestsList.interests.length 
         : 0.0;
 
     return Scaffold(
@@ -37,23 +27,7 @@ class _InterestsScreenState extends State<InterestsScreen> {
           children: [
             const SizedBox(height: 24),
             
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24.0),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(4),
-                child: TweenAnimationBuilder<double>(
-                  duration: const Duration(milliseconds: 300),
-                  curve: Curves.easeInOut,
-                  tween: Tween<double>(begin: 0, end: progress),
-                  builder: (context, value, _) => LinearProgressIndicator(
-                    value: value, 
-                    minHeight: 8,
-                    backgroundColor: const Color(0xFFF2F2F5),
-                    color: AppColors.primaryBlue,
-                  ),
-                ),
-              ),
-            ),
+            CustomProgressBar(progress: progress),
 
             const SizedBox(height: 41),
 
@@ -101,11 +75,11 @@ class _InterestsScreenState extends State<InterestsScreen> {
                         shrinkWrap: true, 
                         physics: const NeverScrollableScrollPhysics(),
                         padding: EdgeInsets.zero,
-                        itemCount: interests.length,
+                        itemCount: InterestsList.interests.length,
                         separatorBuilder: (context, index) => const SizedBox(height: 8),
                         itemBuilder: (context, index) {
-                          final interest = interests[index];
-                          final isSelected = selectedInterests.contains(interest);
+                          final interest = InterestsList.interests[index];
+                          final isSelected = InterestsList.selectedInterests.contains(interest);
 
                           return InterestOption(
                             title: interest,
@@ -113,9 +87,9 @@ class _InterestsScreenState extends State<InterestsScreen> {
                             onTap: () {
                               setState(() {
                                 if (isSelected) {
-                                  selectedInterests.remove(interest);
+                                  InterestsList.selectedInterests.remove(interest);
                                 } else {
-                                  selectedInterests.add(interest);
+                                  InterestsList.selectedInterests.add(interest);
                                 }
                               });
                             },
