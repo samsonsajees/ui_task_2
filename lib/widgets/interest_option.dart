@@ -33,7 +33,7 @@ class InterestOption extends StatelessWidget {
             Text(
               title,
               style: TextStyle(
-                fontSize: 15,
+                fontSize: 14,
                 fontWeight: FontWeight.w400,
                 color: AppColors.greyDarkest,
                 fontFamily: 'Inter',
