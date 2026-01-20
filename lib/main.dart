@@ -21,14 +21,14 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
 
         inputDecorationTheme: InputDecorationTheme(
-          contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+          contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15),
+            borderRadius: BorderRadius.circular(12),
             borderSide: BorderSide(color: AppColors.whiteDarkest, width: 1),
           ),
 
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15),
+            borderRadius: BorderRadius.circular(12),
             borderSide: BorderSide(color: AppColors.primaryBlue, width: 1.5),
           ),
         ),

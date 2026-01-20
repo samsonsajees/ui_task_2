@@ -37,10 +37,8 @@ class _AuthTextFieldState extends State<AuthTextField> {
         style: AppTextStyles.bodyM.copyWith(color: AppColors.greyDarkest),
         obscureText: _obscureText,
         decoration: InputDecoration(
-          contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
           hintText: widget.hint,
           hintStyle: AppTextStyles.bodyM.copyWith(color: AppColors.greyLightest),
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
           
           suffixIcon: widget.isPassword
               ? GestureDetector(
