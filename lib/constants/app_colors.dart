@@ -16,4 +16,6 @@ class AppColors {
   static final Color black = _hexToColor("000000");
   static final Color white = _hexToColor("FFFFFF");
   static final Color divider = _hexToColor("D4D6DD");
+  static final Color progress = _hexToColor("E8E9F1");
+  static final Color selected = _hexToColor("EAF2FF");
 }

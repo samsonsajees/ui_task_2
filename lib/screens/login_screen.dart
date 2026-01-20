@@ -3,6 +3,7 @@ import 'package:ui_task_2/constants/app_colors.dart';
 import 'package:ui_task_2/widgets/text_field.dart';
 import 'package:ui_task_2/screens/signup_screen.dart';
 import 'package:ui_task_2/widgets/social_button.dart';
+import 'package:ui_task_2/widgets/primary_button.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -56,21 +57,11 @@ class LoginPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 24),
 
-                  SizedBox(
-                    width: double.infinity,
-                    height: 55,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        print("Login pressed");
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.primaryBlue,
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                        elevation: 0,
-                      ),
-                      child: Text("Login", style: TextStyle(color: AppColors.white, fontSize: 14, fontWeight: FontWeight.bold)),
-                    ),
-                    
+                  PrimaryButton(
+                    text: "Login",
+                    onPressed: () {
+                      print("Login pressed");
+                    },
                   ),
                   const SizedBox(height: 16),
 

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ui_task_2/constants/app_colors.dart';
 import 'package:ui_task_2/screens/login_screen.dart';
+import 'package:ui_task_2/screens/onboarding_screen.dart';
+import 'package:ui_task_2/screens/subscription_plans_screen.dart';
 
 void main() {
   runApp(const MyApp());

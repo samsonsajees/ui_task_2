@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:ui_task_2/constants/app_colors.dart';
+import 'package:ui_task_2/screens/onboarding_screen.dart';
 import 'package:ui_task_2/widgets/text_field.dart';
 import 'package:ui_task_2/widgets/field_label.dart';
 import 'package:ui_task_2/screens/login_screen.dart';
+import 'package:ui_task_2/widgets/primary_button.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -103,25 +105,16 @@ class _SignUpPageState extends State<SignUpPage> {
                     ),
                     const SizedBox(height: 24),
         
-                    SizedBox(
-                      width: double.infinity,
-                      height: 55,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          print("Sign Up pressed");
-                          Navigator.push(
-                            context, 
-                            MaterialPageRoute(builder: (context) => const LoginPage())
-                          );
-                        },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: AppColors.primaryBlue,
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                          elevation: 0,
-                        ),
-                        child: Text("Sign Up", style: TextStyle(color: AppColors.white, fontSize: 14, fontWeight: FontWeight.bold)),
-                      ),
-                    ),
+                    PrimaryButton(
+                    text: "Sign Up",
+                    onPressed: () {
+                      print("Sign Up pressed");
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const OnboardingPage()),
+                      );
+                    },
+                  ),
                   ],
                 ),
               ),
