@@ -3,14 +3,14 @@ import 'package:ui_task_2/constants/app_colors.dart';
 import 'package:ui_task_2/widgets/primary_button.dart';
 import 'package:ui_task_2/widgets/interest_option.dart';
 
-class SubscriptionPlansScreen extends StatefulWidget {
-  const SubscriptionPlansScreen({super.key});
+class InterestsScreen extends StatefulWidget {
+  const InterestsScreen({super.key});
 
   @override
-  State<SubscriptionPlansScreen> createState() => _SubscriptionPlansScreenState();
+  State<InterestsScreen> createState() => _InterestsScreenState();
 }
 
-class _SubscriptionPlansScreenState extends State<SubscriptionPlansScreen> {
+class _InterestsScreenState extends State<InterestsScreen> {
   final List<String> interests = [
     "User Interface",
     "User Experience",

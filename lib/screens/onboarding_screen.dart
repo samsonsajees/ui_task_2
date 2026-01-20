@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ui_task_2/constants/app_colors.dart';
-import 'package:ui_task_2/screens/subscription_plans_screen.dart';
+import 'package:ui_task_2/screens/interests_screen.dart';
 import 'package:ui_task_2/widgets/pagination_dot.dart';
 import 'package:ui_task_2/widgets/primary_button.dart';
 
@@ -116,7 +116,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       print("Next pressed");
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) =>const SubscriptionPlansScreen()),
+                        MaterialPageRoute(builder: (context) =>const InterestsScreen()),
                       );
                     },
                   ),

@@ -63,8 +63,6 @@ flutter:
     - assets/google.svg
     - assets/apple.svg
     - assets/fb.svg
-    - assets/Selected-Button.svg
-    - assets/Right-Button.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

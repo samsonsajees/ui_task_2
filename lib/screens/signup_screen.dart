@@ -3,7 +3,6 @@ import 'package:ui_task_2/constants/app_colors.dart';
 import 'package:ui_task_2/screens/onboarding_screen.dart';
 import 'package:ui_task_2/widgets/text_field.dart';
 import 'package:ui_task_2/widgets/field_label.dart';
-import 'package:ui_task_2/screens/login_screen.dart';
 import 'package:ui_task_2/widgets/primary_button.dart';
 
 class SignUpPage extends StatefulWidget {
