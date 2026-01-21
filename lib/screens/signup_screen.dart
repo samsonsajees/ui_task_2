@@ -82,19 +82,19 @@ class _SignUpPageState extends State<SignUpPage> {
                             children: [
                               TextSpan(
                                 text: "I've read and agree with the ",
-                                style: AppTextStyles.bodyS.copyWith(color: AppColors.greyLight),
+                                style: AppTextStyles.bodyS.copyWith(color: AppColors.greyLight, fontSize: 13),
                               ),
                               TextSpan(
-                                text: "Terms and   Conditions",
-                                style: AppTextStyles.actionM.copyWith(color: AppColors.primaryBlue),
+                                text: "Terms and Conditions",
+                                style: AppTextStyles.actionM.copyWith(color: AppColors.primaryBlue, fontSize: 13),
                               ),
                               TextSpan(
                                 text: " and the ",
-                                style: AppTextStyles.bodyS.copyWith(color: AppColors.greyLight),
+                                style: AppTextStyles.bodyS.copyWith(color: AppColors.greyLight, fontSize: 13),
                               ),
                               TextSpan(
                                 text: "Privacy Policy",
-                                style: AppTextStyles.actionM.copyWith(color: AppColors.primaryBlue),
+                                style: AppTextStyles.actionM.copyWith(color: AppColors.primaryBlue, fontSize: 13),
                               ),
                               TextSpan(text: "."),
                             ],

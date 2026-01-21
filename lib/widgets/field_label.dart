@@ -13,7 +13,7 @@ class FieldLabel extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 8.0),
       child: Text(
         text,
-        style: AppTextStyles.h5.copyWith(color: AppColors.greyDark, fontSize: 14),
+        style: AppTextStyles.h5.copyWith(color: AppColors.greyDark, fontSize: 13),
       ),
     );
   }
