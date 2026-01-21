@@ -5,6 +5,7 @@ import 'package:ui_task_2/screens/interests_screen.dart';
 import 'package:ui_task_2/widgets/pagination_dot.dart';
 import 'package:ui_task_2/widgets/primary_button.dart';
 import 'package:ui_task_2/widgets/app_network_image.dart';
+import 'package:ui_task_2/constants/url_images.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({super.key});
@@ -15,12 +16,6 @@ class OnboardingPage extends StatefulWidget {
 
 class _OnboardingPageState extends State<OnboardingPage> {
   int _currentIndex = 0;
-
-  final List<String> _onboardingImages = [
-    'https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', // Collaboration/Team
-    'https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', // Tech/Development
-    'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', // Planning/Strategy
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +28,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
             height: 506,
             width: double.infinity,
             child: PageView.builder(
-              itemCount: _onboardingImages.length,
+              itemCount: UrlImages.onboardingImages.length,
               onPageChanged: (index) {
                 setState(() {
                   _currentIndex = index;
@@ -43,7 +38,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 return Container(
                   color: const Color(0xFFE9F4FF),
                   child: AppNetworkImage(
-                    imageUrl: _onboardingImages[index],
+                    imageUrl: UrlImages.onboardingImages[index],
                     fit: BoxFit.cover,
                   ),
                 );
@@ -62,7 +57,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
 
                   SizedBox(height: 16),
                   PaginationIndicator(
-                    itemCount: _onboardingImages.length,
+                    itemCount: UrlImages.onboardingImages.length,
                     currentIndex: _currentIndex,
                   ),
                   const SizedBox(height: 24),
