@@ -40,6 +40,17 @@ class _AuthTextFieldState extends State<AuthTextField> {
           hintText: widget.hint,
           hintStyle: AppTextStyles.bodyM.copyWith(color: AppColors.greyLightest),
           
+          contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(12),
+            borderSide: BorderSide(color: AppColors.whiteDarkest, width: 1),
+          ),
+
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(12),
+            borderSide: BorderSide(color: AppColors.primaryBlue, width: 1.5),
+          ),
+
           suffixIcon: widget.isPassword
               ? GestureDetector(
                   onTap: () {

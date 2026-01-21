@@ -18,21 +18,7 @@ class MyApp extends StatelessWidget {
         textTheme: GoogleFonts.interTextTheme(),
         scaffoldBackgroundColor: AppColors.white,
         primaryColor: AppColors.primaryBlue,
-        useMaterial3: true,
-
-        inputDecorationTheme: InputDecorationTheme(
-          contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(12),
-            borderSide: BorderSide(color: AppColors.whiteDarkest, width: 1),
-          ),
-
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(12),
-            borderSide: BorderSide(color: AppColors.primaryBlue, width: 1.5),
-          ),
-        ),
-        
+        useMaterial3: true     
       ),
       home: const LoginPage(),
     );

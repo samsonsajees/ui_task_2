@@ -31,9 +31,9 @@ class _SignUpPageState extends State<SignUpPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const SizedBox(height: 24),
-                    Text("Sign up", style: AppTextStyles.h3.copyWith(color: AppColors.black)),
+                    Text("Sign up", style: AppTextStyles.h1.copyWith(color: AppColors.black)),
                     const SizedBox(height: 8),
-                    Text("Create an account to get started", style: AppTextStyles.bodyS.copyWith(color: AppColors.greyLight)),
+                    Text("Create an account to get started", style: AppTextStyles.bodyM.copyWith(color: AppColors.greyLight)),
                     
                     const SizedBox(height: 24),
               
