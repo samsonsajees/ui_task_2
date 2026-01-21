@@ -70,18 +70,13 @@ class _InterestsScreenState extends State<InterestsScreen> {
                         separatorBuilder: (context, index) => const SizedBox(height: 8),
                         itemBuilder: (context, index) {
                           final interest = InterestsList.interests[index];
-                          final isSelected = InterestsList.selectedInterests.contains(interest);
 
                           return InterestOption(
-                            title: interest,
-                            isSelected: isSelected,
+                            title: interest.title,
+                            isSelected: interest.isSelected,
                             onTap: () {
                               setState(() {
-                                if (isSelected) {
-                                  InterestsList.selectedInterests.remove(interest);
-                                } else {
-                                  InterestsList.selectedInterests.add(interest);
-                                }
+                                interest.isSelected = !interest.isSelected;
                               });
                             },
                           );

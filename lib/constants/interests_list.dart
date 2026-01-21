@@ -1,17 +1,19 @@
+import 'package:ui_task_2/models/interest_model.dart';
+
 class InterestsList {
   InterestsList._();
 
-  static final List<String> interests = [
-    "User Interface",
-    "User Experience",
-    "User Research",
-    "UX Writing",
-    "User Testing",
-    "Service Design",
-    "Strategy",
-    "Design Systems"
+  static final List<Interest> interests = [
+    Interest(title: "User Interface"),
+    Interest(title: "User Experience"),
+    Interest(title: "User Research"),
+    Interest(title: "UX Writing"),
+    Interest(title: "User Testing"),
+    Interest(title: "Service Design"),
+    Interest(title: "Strategy"),
+    Interest(title: "Design Systems"),
   ];
 
-  static final Set<String> selectedInterests = {};
-
+  static List<Interest> get selectedInterests => 
+      interests.where((i) => i.isSelected).toList();
 }
