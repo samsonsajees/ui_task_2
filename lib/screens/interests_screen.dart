@@ -15,12 +15,14 @@ class InterestsScreen extends StatefulWidget {
 
 class _InterestsScreenState extends State<InterestsScreen> {
   
+  double get _currentProgress {
+    if (InterestsList.interests.isEmpty) return 0.0;
+    return InterestsList.selectedInterests.length / InterestsList.interests.length;
+  }
+
   @override
   Widget build(BuildContext context) {
-    double progress = InterestsList.interests.isNotEmpty 
-        ? InterestsList.selectedInterests.length / InterestsList.interests.length 
-        : 0.0;
-
+    
     return Scaffold(
       backgroundColor: AppColors.white,
       body: SafeArea(
@@ -28,7 +30,7 @@ class _InterestsScreenState extends State<InterestsScreen> {
           children: [
             const SizedBox(height: 24),
             
-            CustomProgressBar(progress: progress),
+            CustomProgressBar(progress: _currentProgress),
 
             const SizedBox(height: 41),
 
@@ -88,7 +90,7 @@ class _InterestsScreenState extends State<InterestsScreen> {
                       PrimaryButton(
                         text: "Next",
                         onPressed: () {
-                           print("Progress: ${(progress * 100).toStringAsFixed(1)}%");
+                           print("Progress: ${(_currentProgress * 100).toStringAsFixed(1)}%");
                         },
                       ),
                       
