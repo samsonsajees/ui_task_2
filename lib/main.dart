@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        fontFamily: 'Inter',
         scaffoldBackgroundColor: AppColors.white,
         primaryColor: AppColors.primaryBlue,
         useMaterial3: true     
