@@ -1,0 +1,66 @@
+import 'package:ui_task_2/models/chat_model.dart';
+import 'package:ui_task_2/models/message_model.dart';
+
+class ChatData {
+  static final List<ChatModel> allChats = [
+    ChatModel(
+      partnerName: 'Haley James',
+      avatar: 'https://i.pravatar.cc/150?u=haley', // Random avatar generator
+      subTitle: 'Stand up for what you believe in',
+      unreadCount: 9,
+      messages: [
+        MessageModel(message: "Hey! How are you?", isMyMessage: false),
+        MessageModel(message: "I'm good, thanks!", isMyMessage: true),
+      ],
+    ),
+    ChatModel(
+      partnerName: 'Nathan Scott',
+      avatar: 'https://i.pravatar.cc/150?u=nathan',
+      subTitle: 'One day you\'re seventeen and planning for someday. And then quietly and without...',
+      unreadCount: 0,
+      messages: [],
+    ),
+    ChatModel(
+      partnerName: 'Brooke Davis',
+      avatar: 'https://i.pravatar.cc/150?u=brooke',
+      subTitle: 'I am who I am. No excuses.',
+      unreadCount: 2,
+      messages: [
+        MessageModel(message: "Hey Lucas!", isMyMessage: false),
+        MessageModel(message: "How's your project going?", isMyMessage: false),
+        MessageModel(message: "Hi Brooke!", isMyMessage: true),
+        MessageModel(message: "It's going well. Thanks for asking!", isMyMessage: true),
+        MessageModel(message: "No worries. Let me know if you need any help 😉", isMyMessage: false),
+        MessageModel(message: "You're the best!", isMyMessage: true),
+      ],
+    ),
+    ChatModel(
+      partnerName: 'Jamie Scott',
+      avatar: 'https://i.pravatar.cc/150?u=jamie',
+      subTitle: 'Some people are a little different. I think that\'s cool.',
+      unreadCount: 0,
+      messages: [],
+    ),
+    ChatModel(
+      partnerName: 'Marvin McFadden',
+      avatar: 'https://i.pravatar.cc/150?u=mouth',
+      subTitle: 'Last night in the NBA the Charlotte Bobcats quietly made a move that most sports fans...',
+      unreadCount: 0,
+      messages: [],
+    ),
+    ChatModel(
+      partnerName: 'Antwon Taylor',
+      avatar: 'https://i.pravatar.cc/150?u=skills',
+      subTitle: 'Meet me at the Rivercourt',
+      unreadCount: 0,
+      messages: [],
+    ),
+    ChatModel(
+      partnerName: 'Jake Jagielski',
+      avatar: 'https://i.pravatar.cc/150?u=jake',
+      subTitle: 'In your life, you\'re gonna go to some great places, and do some wonderful things.',
+      unreadCount: 0,
+      messages: [],
+    ),
+  ];
+}

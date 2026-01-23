@@ -14,6 +14,7 @@ class CustomProgressBar extends StatelessWidget {
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOut,
         tween: Tween<double>(begin: 0, end: progress),
+        
         builder: (context, value, _) => Container(
           height: 8,
           width: double.infinity,
@@ -25,6 +26,7 @@ class CustomProgressBar extends StatelessWidget {
             alignment: Alignment.centerLeft,
             child: FractionallySizedBox(
               widthFactor: value,
+              
               child: Container(
                 decoration: BoxDecoration(
                   color: AppColors.primaryBlue,

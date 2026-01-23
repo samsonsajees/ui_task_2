@@ -5,6 +5,7 @@ import 'package:ui_task_2/widgets/primary_button.dart';
 import 'package:ui_task_2/widgets/interest_option.dart';
 import 'package:ui_task_2/constants/interests_list.dart';
 import 'package:ui_task_2/widgets/animated_progress_bar.dart';
+import 'package:ui_task_2/screens/chats_screen.dart';
 
 class InterestsScreen extends StatefulWidget {
   const InterestsScreen({super.key});
@@ -90,7 +91,10 @@ class _InterestsScreenState extends State<InterestsScreen> {
                       PrimaryButton(
                         text: "Next",
                         onPressed: () {
-                           print("Progress: ${(_currentProgress * 100).toStringAsFixed(1)}%");
+                          Navigator.push(context, MaterialPageRoute(
+                            builder: (context) => const ChatsScreen(),
+                          ));
+                          print("Progress: ${(_currentProgress * 100).toStringAsFixed(1)}%");
                         },
                       ),
                       
