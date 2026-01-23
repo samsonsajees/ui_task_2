@@ -20,4 +20,6 @@ class AppColors {
   static final Color selected = _hexToColor("EAF2FF");
   static final Color listText = _hexToColor("1F1F1F");
   static final Color searchBar = _hexToColor("F8F9FE");
+  static final Color searchIcon = _hexToColor("2F3036");
+  static final Color chatIcons = _hexToColor("B3DAFF");
 }

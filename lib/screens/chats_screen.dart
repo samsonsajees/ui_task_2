@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:ui_task_2/constants/app_colors.dart';
 import 'package:ui_task_2/constants/app_text_styles.dart';
 import 'package:ui_task_2/constants/chat_data.dart';
@@ -22,7 +23,7 @@ class ChatsScreen extends StatelessWidget {
                 children: [
                   Text("Edit", style: AppTextStyles.actionL.copyWith(color: AppColors.primaryBlue)),
                   Text("Chats", style: AppTextStyles.h3.copyWith(fontSize: 18, color: AppColors.greyDarkest)),
-                  Icon(Icons.edit_square, color: AppColors.primaryBlue, size: 24),
+                  Icon(Icons.edit_square, color: AppColors.primaryBlue, size: 20),
                 ],
               ),
             ),
@@ -39,9 +40,9 @@ class ChatsScreen extends StatelessWidget {
                 child: Row(
                   children: [
                     const SizedBox(width: 12),
-                    Icon(Icons.search, color: AppColors.greyLight, size: 22),
-                    const SizedBox(width: 8),
-                    Text("Search", style: AppTextStyles.bodyM.copyWith(color: AppColors.greyLight)),
+                    Icon(Icons.search_rounded, color: AppColors.searchIcon, size: 22),
+                    const SizedBox(width: 12),
+                    Text("Search", style: AppTextStyles.bodyM.copyWith(color: AppColors.greyLightest, fontSize: 15)),
                   ],
                 ),
               ),
@@ -69,9 +70,9 @@ class ChatsScreen extends StatelessWidget {
                     },
                     // Avatar
                     leading: CircleAvatar(
-                      radius: 28,
-                      backgroundColor: AppColors.progress,
-                      backgroundImage: NetworkImage(chat.avatar),
+                      radius: 24,
+                      backgroundColor: AppColors.selected,
+                      child: Icon(Icons.person, color: AppColors.chatIcons, size: 32),
                     ),
                     // Name
                     title: Text(
