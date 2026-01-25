@@ -22,4 +22,5 @@ class AppColors {
   static final Color searchBar = _hexToColor("F8F9FE");
   static final Color searchIcon = _hexToColor("2F3036");
   static final Color chatIcons = _hexToColor("B3DAFF");
+  static final Color friendChatBubble = _hexToColor("F8F9FE");
 }

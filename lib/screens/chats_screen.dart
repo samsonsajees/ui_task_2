@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:ui_task_2/constants/app_colors.dart';
 import 'package:ui_task_2/constants/app_text_styles.dart';
 import 'package:ui_task_2/constants/chat_data.dart';
-import 'package:ui_task_2/screens/chat_detail_screen.dart'; 
+import 'package:ui_task_2/screens/chat_detail_screen.dart';
+import 'package:ui_task_2/widgets/nav_bar.dart'; 
 
 class ChatsScreen extends StatelessWidget {
   const ChatsScreen({super.key});
@@ -14,20 +15,20 @@ class ChatsScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            // ---------------- HEADER ----------------
+            // HEADER
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12),
+              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text("Edit", style: AppTextStyles.actionL.copyWith(color: AppColors.primaryBlue)),
-                  Text("Chats", style: AppTextStyles.h3.copyWith(fontSize: 18, color: AppColors.greyDarkest)),
-                  Icon(Icons.edit_square, color: AppColors.primaryBlue, size: 20),
+                  Text("Chats", style: AppTextStyles.h3.copyWith(color: AppColors.greyDarkest)),
+                  Icon(Icons.edit_square, color: AppColors.primaryBlue, size: 24),
                 ],
               ),
             ),
 
-            // ---------------- SEARCH BAR ----------------
+            // SEARCH BAR 
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Container(
@@ -41,7 +42,7 @@ class ChatsScreen extends StatelessWidget {
                     const SizedBox(width: 12),
                     Icon(Icons.search_rounded, color: AppColors.searchIcon, size: 22),
                     const SizedBox(width: 12),
-                    Text("Search", style: AppTextStyles.bodyM.copyWith(color: AppColors.greyLightest, fontSize: 15)),
+                    Text("Search", style: AppTextStyles.bodyL.copyWith(color: AppColors.greyLightest)),
                   ],
                 ),
               ),
@@ -49,7 +50,7 @@ class ChatsScreen extends StatelessWidget {
 
             const SizedBox(height: 12),
 
-            // ---------------- CHAT LIST ----------------
+            // CHAT LIST
             Expanded(
               child: ListView.separated(
                 itemCount: ChatData.allChats.length,
@@ -58,7 +59,7 @@ class ChatsScreen extends StatelessWidget {
                   final chat = ChatData.allChats[index];
                   
                   return ListTile(
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+                    contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                     onTap: () {
                       Navigator.push(
                         context,
@@ -71,7 +72,7 @@ class ChatsScreen extends StatelessWidget {
                     leading: CircleAvatar(
                       radius: 24,
                       backgroundColor: AppColors.selected,
-                      child: Icon(Icons.person, color: AppColors.chatIcons, size: 32),
+                      child: Icon(Icons.person, color: AppColors.chatIcons, size: 40),
                     ),
                     // Name
                     title: Text(
@@ -88,7 +89,7 @@ class ChatsScreen extends StatelessWidget {
                     // Unread Badge
                     trailing: chat.unreadCount > 0
                         ? Container(
-                            padding: const EdgeInsets.all(6),
+                            padding: const EdgeInsets.all(10),
                             decoration: BoxDecoration(
                               color: AppColors.primaryBlue,
                               shape: BoxShape.circle,
@@ -106,19 +107,40 @@ class ChatsScreen extends StatelessWidget {
           ],
         ),
       ),
-      // ---------------- BOTTOM NAV ----------------
-      bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: AppColors.primaryBlue,
-        unselectedItemColor: AppColors.greyLight,
-        backgroundColor: AppColors.white,
-        showUnselectedLabels: true,
-        type: BottomNavigationBarType.fixed,
-        currentIndex: 0,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.chat_bubble_outline), label: "Chats"),
-          BottomNavigationBarItem(icon: Icon(Icons.people_outline), label: "Friends"),
-          BottomNavigationBarItem(icon: Icon(Icons.settings_outlined), label: "Settings"),
+
+      // BOTTOM NAV
+      bottomNavigationBar: Container(
+        height: 88, // Typical height for modern nav bars
+        padding: const EdgeInsets.only(top: 12, bottom: 24, left: 16, right: 16), // Space for labels and safe area
+        decoration: BoxDecoration(
+          color: AppColors.white,
+          border: Border(
+            top: BorderSide(color: AppColors.divider, width: 1),
+          ),
+        ),
+        child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          CustomNavItem(
+            icon: Icons.chat_bubble_rounded,
+            label: "Chats",
+            isSelected: true,
+            onTap: () {},
+          ),
+          CustomNavItem(
+            icon: Icons.person_rounded,
+            label: "Friends",
+            isSelected: false,
+            onTap: () {},
+          ),
+          CustomNavItem(
+            icon: Icons.settings_rounded,
+            label: "Settings",
+            isSelected: false,
+            onTap: () {},
+          ),
         ],
+        ),
       ),
     );
   }

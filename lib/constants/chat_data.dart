@@ -67,5 +67,13 @@ class ChatData {
         MessageModel(message: 'In your life, you\'re gonna go to some great places, and do some wonderful things.', isMyMessage: false)
       ],
     ),
+    ChatModel(
+      partnerName: 'Peyton Sawyer', 
+      avatar: 'https://i.pravatar.cc/150?u=skills', 
+      unreadCount: 0, 
+      messages: [
+        MessageModel(message: 'Every song ends, but is that any reason not to enjoy the music?', isMyMessage: false)
+      ]
+    )
   ];
 }
