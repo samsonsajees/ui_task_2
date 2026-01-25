@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:ui_task_2/constants/app_colors.dart';
 import 'package:ui_task_2/constants/app_text_styles.dart';
 import 'package:ui_task_2/constants/chat_data.dart';
