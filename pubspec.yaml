@@ -64,6 +64,10 @@ flutter:
     - assets/icons/apple.svg
     - assets/icons/fb.svg
     - assets/icons/editbutton.svg
+    - assets/icons/avatar.svg
+    - assets/icons/Icon.svg
+    - assets/icons/Iconfriend.svg 
+    - assets/icons/Iconsettings.svg 
 
   fonts:
     - family: Inter

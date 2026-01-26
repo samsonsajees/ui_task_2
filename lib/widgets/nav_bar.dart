@@ -3,7 +3,7 @@ import 'package:ui_task_2/constants/app_colors.dart';
 import 'package:ui_task_2/constants/app_text_styles.dart';
 
 class CustomNavItem extends StatelessWidget {
-  final IconData icon;
+  final Widget icon;
   final String label;
   final bool isSelected;
   final VoidCallback onTap;
@@ -29,7 +29,7 @@ class CustomNavItem extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(icon, color: iconColor, size: 24),
+          icon,
           const SizedBox(height: 4),
           Text(
             label,

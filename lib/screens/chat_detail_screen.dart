@@ -3,6 +3,8 @@ import 'package:ui_task_2/constants/app_colors.dart';
 import 'package:ui_task_2/constants/app_text_styles.dart';
 import 'package:ui_task_2/models/chat_model.dart';
 import 'package:ui_task_2/widgets/chat_bubble.dart';
+import 'package:ui_task_2/widgets/custom_app_bar.dart';
+import 'package:flutter_svg/svg.dart';
 
 class ChatDetailScreen extends StatefulWidget {
   final ChatModel chat;
@@ -21,31 +23,36 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.white,
-      appBar: AppBar(
-        backgroundColor: AppColors.white,
-        elevation: 0,
-        leading: BackButton(color: AppColors.primaryBlue),
-        centerTitle: true,
-        title: Text(
-           widget.chat.partnerName, 
-           style: AppTextStyles.h4.copyWith(color: AppColors.greyDarkest, fontSize: 16)
+
+      appBar: CustomAppBar(
+        title: widget.chat.partnerName,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios_new_rounded, color: AppColors.primaryBlue, size: 20),
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 16.0),
-            child: CircleAvatar(
-              radius: 18,
-              backgroundColor: AppColors.progress,
-              backgroundImage: NetworkImage(widget.chat.avatar),
+        trailing: ClipRRect(
+          borderRadius: BorderRadius.circular(16),
+          child: Container(
+            width: 42,
+            height: 42,
+            color: AppColors.selected,
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: SvgPicture.asset(
+                'assets/icons/avatar.svg',
+                 width: 33,
+                 height: 33,
+                 fit: BoxFit.contain,
+              ),
             ),
-          )
-        ],
-        // App bar and chat divider
-        bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(1.0),
-          child: Container(color: AppColors.divider, height: 1.0),
+          ),
         ),
+        showDivider: false,
       ),
+
+      
       body: Column(
         children: [
           // MESSAGES LIST
@@ -59,7 +66,7 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
               },
             ),
           ),
-
+      
           // INPUT AREA
           SafeArea(
             child: Padding(
