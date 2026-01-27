@@ -102,17 +102,22 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
         
         trailing: ClipRRect(
           borderRadius: BorderRadius.circular(16),
-          child: Container(
-            width: 40,
-            height: 40,
-            color: AppColors.selected,
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: SvgPicture.asset(
-                'assets/icons/avatar.svg',
-                 width: 33,
-                 height: 33,
-                 fit: BoxFit.contain,
+          child: GestureDetector(
+            onTap: () {
+              print("Profile tapped");
+            },
+            child: Container(
+              width: 40,
+              height: 40,
+              color: AppColors.selected,
+              child: Align(
+                alignment: Alignment.bottomCenter,
+                child: SvgPicture.asset(
+                  'assets/icons/avatar.svg',
+                   width: 33,
+                   height: 33,
+                   fit: BoxFit.contain,
+                ),
               ),
             ),
           ),

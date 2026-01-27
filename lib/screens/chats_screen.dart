@@ -6,6 +6,7 @@ import 'package:ui_task_2/constants/chat_data.dart';
 import 'package:ui_task_2/screens/chat_detail_screen.dart';
 import 'package:ui_task_2/widgets/nav_bar.dart'; 
 import 'package:ui_task_2/widgets/custom_app_bar.dart';
+import 'package:ui_task_2/widgets/search_bar.dart';
 
 class ChatsScreen extends StatefulWidget {
   const ChatsScreen({super.key});
@@ -21,12 +22,38 @@ class _ChatsScreenState extends State<ChatsScreen> {
       backgroundColor: AppColors.white,
       
       appBar: CustomAppBar(
+        
         title: "Chats",
-        leading: Text("Edit", style: AppTextStyles.actionL.copyWith(color: AppColors.primaryBlue)),
-        trailing: SvgPicture.asset(
-          'assets/icons/editbutton.svg',
-          width: 20,
-          height: 20,
+        
+        leading: GestureDetector(
+          onTap: () {
+            print("Edit tapped");
+          }, 
+          child: Container(
+            height:30, 
+            width: 30, 
+            padding: const EdgeInsets.all(5), 
+            child: Text(
+              "Edit", 
+              style: AppTextStyles.actionL.copyWith(color: AppColors.primaryBlue)
+            )
+          )
+        ),
+        
+        trailing: GestureDetector(
+          onTap: () {
+            print("New chat tapped");
+          },
+          child: Container(
+            height: 30,
+            width: 30,
+            padding: const EdgeInsets.all(5),
+            child: SvgPicture.asset(
+              'assets/icons/editbutton.svg',
+              width: 20,
+              height: 20,
+            ),
+          ),
         ),
         showDivider: false,
       ),
@@ -36,24 +63,7 @@ class _ChatsScreenState extends State<ChatsScreen> {
         children: [
       
           // SEARCH BAR 
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: Container(
-              height: 48,
-              decoration: BoxDecoration(
-                color: AppColors.searchBar, 
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: Row(
-                children: [
-                  const SizedBox(width: 12),
-                  Icon(Icons.search_rounded, color: AppColors.searchIcon, size: 22),
-                  const SizedBox(width: 12),
-                  Text("Search", style: AppTextStyles.bodyL.copyWith(color: AppColors.greyLightest)),
-                ],
-              ),
-            ),
-          ),
+          CustomSearchBar(),
       
           const SizedBox(height: 12),
       
@@ -153,7 +163,9 @@ class _ChatsScreenState extends State<ChatsScreen> {
             ),
             label: "Chats",
             isSelected: true,
-            onTap: () {},
+            onTap: () {
+              print("Chats tapped");
+            },
           ),
           CustomNavItem(
             icon: SvgPicture.asset(
@@ -163,7 +175,9 @@ class _ChatsScreenState extends State<ChatsScreen> {
             ),
             label: "Friends",
             isSelected: false,
-            onTap: () {},
+            onTap: () {
+              print("Friends tapped");
+            },
           ),
           CustomNavItem(
             icon: SvgPicture.asset(
@@ -173,7 +187,9 @@ class _ChatsScreenState extends State<ChatsScreen> {
             ),
             label: "Settings",
             isSelected: false,
-            onTap: () {},
+            onTap: () {
+              print("Settings tapped");
+            },
           ),
         ],
         ),
