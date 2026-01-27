@@ -63,9 +63,7 @@ class ChatData {
       partnerName: 'Jake Jagielski',
       avatar: 'https://i.pravatar.cc/150?u=jake',
       unreadCount: 0,
-      messages: [
-        MessageModel(message: 'In your life, you\'re gonna go to some great places, and do some wonderful things.', isMyMessage: false)
-      ],
+      messages: [],
     ),
     ChatModel(
       partnerName: 'Peyton Sawyer', 
