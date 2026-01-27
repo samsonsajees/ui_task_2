@@ -80,18 +80,31 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
     return Scaffold(
       backgroundColor: AppColors.white,
       appBar: CustomAppBar(
+
         title: widget.chat.partnerName,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios_new_rounded, color: AppColors.primaryBlue, size: 20),
-          onPressed: () {
+        
+        leading: GestureDetector(
+          onTap: () {
             Navigator.pop(context);
           },
+          child: Container(
+            height: 30,
+            width: 30,
+            padding: const EdgeInsets.all(5),
+            child: SvgPicture.asset(
+                  'assets/icons/backButton.svg',
+                   width: 20,
+                   height: 20,
+                   fit: BoxFit.contain,
+                ),
+          ),
         ),
+        
         trailing: ClipRRect(
           borderRadius: BorderRadius.circular(16),
           child: Container(
-            width: 42,
-            height: 42,
+            width: 40,
+            height: 40,
             color: AppColors.selected,
             child: Align(
               alignment: Alignment.bottomCenter,

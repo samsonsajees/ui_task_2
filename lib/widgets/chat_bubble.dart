@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ui_task_2/constants/app_colors.dart';
 import 'package:ui_task_2/constants/app_text_styles.dart';
-import 'package:ui_task_2/models/message_model.dart'; // Ensure this points to your file
+import 'package:ui_task_2/models/message_model.dart';
 import 'dart:io';
 
 class ChatBubble extends StatelessWidget {
@@ -11,7 +11,7 @@ class ChatBubble extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // If it's an image, we reduce padding so the image looks better
+
     final isImage = message.type == MessageType.image;
 
     return Align(
@@ -19,7 +19,7 @@ class ChatBubble extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.only(bottom: 12),
         padding: isImage 
-            ? const EdgeInsets.all(4) // Small padding for images
+            ? const EdgeInsets.all(4)
             : const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         
         constraints: BoxConstraints(
@@ -36,27 +36,49 @@ class ChatBubble extends StatelessWidget {
           ),
         ),
         child: isImage 
-            ? _buildImageContent() 
-            : _buildTextContent(),
+            ? ImageBubbleContent(path: message.message) 
+            : TextBubbleContent(
+                text: message.message, 
+                isMyMessage: message.isMyMessage
+              ),
       ),
     );
   }
+}
 
-  Widget _buildTextContent() {
+class TextBubbleContent extends StatelessWidget {
+  final String text;
+  final bool isMyMessage;
+
+  const TextBubbleContent({
+    super.key, 
+    required this.text, 
+    required this.isMyMessage
+  });
+
+  @override
+  Widget build(BuildContext context) {
     return Text(
-      message.message,
+      text,
       style: AppTextStyles.bodyM.copyWith(
-        color: message.isMyMessage ? AppColors.white : AppColors.listText,
+        color: isMyMessage ? AppColors.white : AppColors.listText,
         fontSize: 15,
       ),
     );
   }
+}
 
-  Widget _buildImageContent() {
+class ImageBubbleContent extends StatelessWidget {
+  final String path;
+
+  const ImageBubbleContent({super.key, required this.path});
+
+  @override
+  Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(12),
       child: Image.file(
-        File(message.message), // Treating the 'message' string as a file path
+        File(path),
         fit: BoxFit.cover,
       ),
     );
