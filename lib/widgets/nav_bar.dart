@@ -19,7 +19,7 @@ class CustomNavItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    final Color iconColor = isSelected ? AppColors.primaryBlue : AppColors.divider;
+    //final Color iconColor = isSelected ? AppColors.primaryBlue : AppColors.divider;
     final Color textColor = isSelected ? AppColors.greyDarkest : AppColors.greyLight;
     final FontWeight? textWeight = isSelected ? AppTextStyles.actionM.fontWeight : AppTextStyles.bodyS.fontWeight;
 
