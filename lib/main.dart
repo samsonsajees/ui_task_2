@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         primaryColor: AppColors.primaryBlue,
         useMaterial3: true     
       ),
-      home: const ChatsScreen(),
+      home: const LoginPage(),
     );
   }
 }

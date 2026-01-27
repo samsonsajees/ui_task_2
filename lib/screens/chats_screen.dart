@@ -7,9 +7,14 @@ import 'package:ui_task_2/screens/chat_detail_screen.dart';
 import 'package:ui_task_2/widgets/nav_bar.dart'; 
 import 'package:ui_task_2/widgets/custom_app_bar.dart';
 
-class ChatsScreen extends StatelessWidget {
+class ChatsScreen extends StatefulWidget {
   const ChatsScreen({super.key});
 
+  @override
+  State<ChatsScreen> createState() => _ChatsScreenState();
+}
+
+class _ChatsScreenState extends State<ChatsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,20 +67,16 @@ class ChatsScreen extends StatelessWidget {
                 
                 return ListTile(
                   contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                  onTap: () {
-                    Navigator.push(
+                  onTap: () async {
+                    await Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => ChatDetailScreen(chat: chat),
                       ),
                     );
+                    setState(() {});
                   },
-                  // Avatar
-                  //leading: CircleAvatar(
-                    //radius: 24,
-                    //backgroundColor: AppColors.selected,
-                    //child: Icon(Icons.person, color: AppColors.chatIcons, size: 40),
-                  //),
+
                   leading: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8),
                     child: ClipRRect(
@@ -133,8 +134,8 @@ class ChatsScreen extends StatelessWidget {
 
       // BOTTOM NAV
       bottomNavigationBar: Container(
-        height: 88, // Typical height for modern nav bars
-        padding: const EdgeInsets.only(top: 12, bottom: 24, left: 16, right: 16), // Space for labels and safe area
+        height: 88,
+        padding: const EdgeInsets.only(top: 12, bottom: 24, left: 16, right: 16),
         decoration: BoxDecoration(
           color: AppColors.white,
           border: Border(

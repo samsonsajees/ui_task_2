@@ -1,8 +1,8 @@
-import 'message_model.dart';
+import 'package:ui_task_2/models/message_model.dart';
 
 class ChatModel {
   final String partnerName;
-  final String avatar; 
+  final String avatar;
   final int unreadCount;
   final List<MessageModel> messages;
 
@@ -13,5 +13,21 @@ class ChatModel {
     required this.messages,
   });
 
-  String get subTitle => messages.isNotEmpty ? messages.last.message : '';
+  // DYNAMIC GETTER: Calculates the subtitle every time the screen builds
+  String get subTitle 
+  {
+    if (messages.isEmpty) 
+    {
+      return "No messages yet";
+    }
+    
+    final lastMsg = messages.last;
+    
+    if (lastMsg.type == MessageType.image) 
+    {
+      return "Sent an image";
+    }
+    
+    return lastMsg.message;
+  }
 }
