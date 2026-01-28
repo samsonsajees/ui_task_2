@@ -7,7 +7,7 @@ import 'package:ui_task_2/screens/chat_detail_screen.dart';
 import 'package:ui_task_2/widgets/nav_bar.dart'; 
 import 'package:ui_task_2/widgets/custom_app_bar.dart';
 import 'package:ui_task_2/widgets/search_bar.dart';
-import 'package:ui_task_2/models/message_model.dart';
+
 
 class ChatsScreen extends StatefulWidget {
   const ChatsScreen({super.key});
