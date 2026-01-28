@@ -7,6 +7,7 @@ import 'package:ui_task_2/screens/chat_detail_screen.dart';
 import 'package:ui_task_2/widgets/nav_bar.dart'; 
 import 'package:ui_task_2/widgets/custom_app_bar.dart';
 import 'package:ui_task_2/widgets/search_bar.dart';
+import 'package:ui_task_2/models/message_model.dart';
 
 class ChatsScreen extends StatefulWidget {
   const ChatsScreen({super.key});
@@ -78,15 +79,21 @@ class _ChatsScreenState extends State<ChatsScreen> {
                 return ListTile(
                   contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                   onTap: () async {
+                    //chat.messages.add(
+                      //MessageModel(message: "Seen your message", isMyMessage: false)
+                    //);
                     await Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ChatDetailScreen(chat: chat),
+                        builder: (context) => ChatDetailScreen(
+                          chat: chat,
+                          onMessageSent: () {
+                            setState(() {});
+                          },
+                        ),
                       ),
                     );
-                    setState(() {});
                   },
-
                   leading: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8),
                     child: ClipRRect(

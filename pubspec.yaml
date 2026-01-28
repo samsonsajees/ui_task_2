@@ -71,6 +71,7 @@ flutter:
     - assets/icons/Iconsettings.svg 
     - assets/icons/backButton.svg
     - assets/icons/search.svg
+    - assets/icons/send.svg
 
   fonts:
     - family: Inter

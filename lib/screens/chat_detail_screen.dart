@@ -10,8 +10,13 @@ import 'package:image_picker/image_picker.dart';
 
 class ChatDetailScreen extends StatefulWidget {
   final ChatModel chat;
+  final Function onMessageSent;
 
-  const ChatDetailScreen({super.key, required this.chat});
+  const ChatDetailScreen({
+    super.key, 
+    required this.chat, 
+    required this.onMessageSent
+  });
 
   @override
   State<ChatDetailScreen> createState() => _ChatDetailScreenState();
@@ -39,6 +44,7 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
       _isTyping = false;
     });
     _scrollToBottom();
+    widget.onMessageSent();
   }
 
   //Pick & sends Image
@@ -56,6 +62,7 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
         });
 
         _scrollToBottom();
+        widget.onMessageSent();
       }
     } catch (e) {
       debugPrint("Error picking image: $e");
@@ -68,7 +75,7 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
       if (_scrollController.hasClients) {
         _scrollController.animateTo(
           _scrollController.position.maxScrollExtent,
-          duration: const Duration(milliseconds: 300),
+          duration: const Duration(seconds: 2),
           curve: Curves.easeOut,
         );
       }
@@ -182,10 +189,22 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
                   if (_isTyping)
                     GestureDetector(
                       onTap: _sendMessage,
-                      child: CircleAvatar(
-                        backgroundColor: AppColors.primaryBlue,
-                        radius: 18,
-                        child: const Icon(Icons.send, color: Colors.white, size: 16),
+                      child: Container(
+                        height: 34,
+                        width: 34,
+                        padding: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          color: AppColors.primaryBlue,
+                          shape: BoxShape.circle
+                          
+                          
+                        ),
+                        child: SvgPicture.asset(
+                          'assets/icons/send.svg',
+                          width: 12,
+                          height: 12,
+                          fit: BoxFit.contain,
+                        ),
                       ),
                     ),
                 ],
