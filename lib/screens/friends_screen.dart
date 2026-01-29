@@ -41,7 +41,16 @@ class _FriendsScreenState extends State<FriendsScreen> with AutomaticKeepAliveCl
     super.build(context);
 
     if (_isLoading) {
-      return Center(child: CircularProgressIndicator(color: AppColors.primaryBlue));
+      return Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("Loading weather data...", style: AppTextStyles.bodyXL),
+            const SizedBox(height: 10),
+            CircularProgressIndicator(color: AppColors.primaryBlue),
+          ],
+        ),
+      );
     }
 
     if (_weather == null) {
