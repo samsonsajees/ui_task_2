@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:ui_task_2/constants/app_colors.dart';
 import 'package:ui_task_2/constants/app_text_styles.dart';
 
-class CustomNavItem extends StatelessWidget {
+class CustomNavBar extends StatelessWidget {
   final Widget icon;
   final String label;
   final bool isSelected;
   final VoidCallback onTap;
 
-  const CustomNavItem({
+  const CustomNavBar({
     super.key,
     required this.icon,
     required this.label,
