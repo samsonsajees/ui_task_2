@@ -10,16 +10,27 @@ class WeatherService {
   Future<WeatherModel?> fetchWeather() async {
     try {
       final response = await http.get(Uri.parse(_url));
-
-      if (response.statusCode == 200) {
+ 
+      if (response.statusCode >= 200 && response.statusCode <= 299) {
+        
         final data = jsonDecode(response.body);
-        return WeatherModel.fromJson(data);
+        
+        if (data == null || (data is Map && data.isEmpty)) {
+          throw Exception("No weather data returned from server");
+        }
+
+        try {
+          return WeatherModel.fromJson(data);
+        } catch (e) {
+          throw Exception("Failed to parse weather data");
+        }
+
       } 
       else if (response.statusCode == 404) {
         throw Exception("Location not found. Please check the coordinates");
       } 
       else if (response.statusCode >= 500) {
-        throw Exception("Weather server is down. Please try again later");
+        throw Exception("Internal server error. Please try again later");
       } 
       else if (response.statusCode == 400) {
         throw Exception("Invalid request");

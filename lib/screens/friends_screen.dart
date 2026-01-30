@@ -103,44 +103,46 @@ class _FriendsScreenState extends State<FriendsScreen> with AutomaticKeepAliveCl
     }
 
     if (_weather != null) {
-      return Padding(
-        padding: const EdgeInsets.all(24.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            GestureDetector(
-              onTap: () {
-                setState(() => _isLoading = true);
-                _loadData();
-              },
-              child: Container(
-                alignment: Alignment.center,
-                padding: const EdgeInsets.all(12),
-                decoration: BoxDecoration(
-                  color: AppColors.primaryBlue,
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(Icons.refresh, color: AppColors.white),
-                    const SizedBox(width: 8),
-                    Text("Refresh", style: AppTextStyles.bodyM.copyWith(color: AppColors.white)),
-                  ],
+      return SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(24.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              GestureDetector(
+                onTap: () {
+                  setState(() => _isLoading = true);
+                  _loadData();
+                },
+                child: Container(
+                  alignment: Alignment.center,
+                  padding: const EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    color: AppColors.primaryBlue,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(Icons.refresh, color: AppColors.white),
+                      const SizedBox(width: 8),
+                      Text("Refresh", style: AppTextStyles.bodyM.copyWith(color: AppColors.white)),
+                    ],
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(height: 16),
-            BuildInfoCard(label: "Location", value: "Lat: ${_weather!.latitude}, Long: ${_weather!.longitude}", icon: Icons.location_on),
-            const SizedBox(height: 16),
-            BuildInfoCard(label: "Last Sync", value: _weather!.currentTime.replaceAll('T', ' '), icon: Icons.access_time),
-            const SizedBox(height: 16),
-            BuildInfoCard(label: "Temperature", value: "${_weather!.currentTemp}${_weather!.tempUnit}", icon: Icons.thermostat),
-            const SizedBox(height: 16),
-            BuildInfoCard(label: "Humidity", value: "${_weather!.currentHumidity}${_weather!.humidityUnit}", icon: Icons.water_drop),
-            const SizedBox(height: 16),
-            BuildInfoCard(label: "Wind Speed", value: "${_weather!.currentWindSpeed} ${_weather!.windSpeedUnit}", icon: Icons.air),
-          ],
+              const SizedBox(height: 16),
+              BuildInfoCard(label: "Location", value: "Lat: ${_weather!.latitude}, Long: ${_weather!.longitude}", icon: Icons.location_on),
+              const SizedBox(height: 16),
+              BuildInfoCard(label: "Last Sync", value: _weather!.currentTime.replaceAll('T', ' '), icon: Icons.access_time),
+              const SizedBox(height: 16),
+              BuildInfoCard(label: "Temperature", value: "${_weather!.currentTemp}${_weather!.tempUnit}", icon: Icons.thermostat),
+              const SizedBox(height: 16),
+              BuildInfoCard(label: "Humidity", value: "${_weather!.currentHumidity}${_weather!.humidityUnit}", icon: Icons.water_drop),
+              const SizedBox(height: 16),
+              BuildInfoCard(label: "Wind Speed", value: "${_weather!.currentWindSpeed} ${_weather!.windSpeedUnit}", icon: Icons.air),
+            ],
+          ),
         ),
       );
     }
