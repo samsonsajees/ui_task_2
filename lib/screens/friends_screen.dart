@@ -16,6 +16,7 @@ class _FriendsScreenState extends State<FriendsScreen> with AutomaticKeepAliveCl
   final WeatherService _service = WeatherService();
   WeatherModel? _weather;
   bool _isLoading = true;
+  String _errorMessage = "";
 
   @override
   bool get wantKeepAlive => true;
@@ -27,12 +28,29 @@ class _FriendsScreenState extends State<FriendsScreen> with AutomaticKeepAliveCl
   }
 
   Future<void> _loadData() async {
-    final data = await _service.fetchWeather();
-    if (mounted) {
+    try {
       setState(() {
-        _weather = data;
-        _isLoading = false;
+        _errorMessage = "";
+        _isLoading = true; 
       });
+
+      final data = await _service.fetchWeather();
+      
+      if (mounted) {
+        setState(() {
+          _weather = data;
+          _isLoading = false;
+        });
+      }
+    } 
+    catch (e) {
+      if (mounted) {
+        setState(() {
+          _isLoading = false;
+          _weather = null;
+          _errorMessage = e.toString().replaceAll("Exception: ", ""); 
+        });
+      }
     }
   }
 
@@ -53,80 +71,79 @@ class _FriendsScreenState extends State<FriendsScreen> with AutomaticKeepAliveCl
       );
     }
 
-    if (_weather == null) {
+    if (_errorMessage.isNotEmpty) {
       return Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Failed to load data", style: AppTextStyles.bodyXL),
+            Icon(Icons.error_outline, size: 48, color: Colors.redAccent),
+            const SizedBox(height: 16),
+            
+            Text(
+              _errorMessage, 
+              style: AppTextStyles.h4.copyWith(color: AppColors.greyDarkest),
+              textAlign: TextAlign.center,
+            ),
+            
             const SizedBox(height: 10),
             GestureDetector(
-            onTap: () {
-              setState(() => _isLoading = true);
-              _loadData();
-            },
-            child: Container(
-              alignment: Alignment.center,
-              padding: const EdgeInsets.all(12),
-              width: 120,
-              decoration: BoxDecoration(
-                color: AppColors.primaryBlue,
-                borderRadius: BorderRadius.circular(12),
+              onTap: () => _loadData(),
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                decoration: BoxDecoration(
+                  color: AppColors.primaryBlue,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Text("Retry", style: AppTextStyles.bodyM.copyWith(color: Colors.white)),
               ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(Icons.refresh, color: AppColors.white),
-                  const SizedBox(width: 8),
-                  Text("Retry", style: AppTextStyles.bodyM.copyWith(color: AppColors.white)),
-                ],
-              ),
-            ),
-          ),
+            )
           ],
         ),
       );
     }
 
-    return Padding(
-      padding: const EdgeInsets.all(24.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          GestureDetector(
-            onTap: () {
-              setState(() => _isLoading = true);
-              _loadData();
-            },
-            child: Container(
-              alignment: Alignment.center,
-              padding: const EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                color: AppColors.primaryBlue,
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(Icons.refresh, color: AppColors.white),
-                  const SizedBox(width: 8),
-                  Text("Refresh", style: AppTextStyles.bodyM.copyWith(color: AppColors.white)),
-                ],
+    if (_weather != null) {
+      return Padding(
+        padding: const EdgeInsets.all(24.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            GestureDetector(
+              onTap: () {
+                setState(() => _isLoading = true);
+                _loadData();
+              },
+              child: Container(
+                alignment: Alignment.center,
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: AppColors.primaryBlue,
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(Icons.refresh, color: AppColors.white),
+                    const SizedBox(width: 8),
+                    Text("Refresh", style: AppTextStyles.bodyM.copyWith(color: AppColors.white)),
+                  ],
+                ),
               ),
             ),
-          ),
-          const SizedBox(height: 16),
-          BuildInfoCard(label: "Location", value: "Lat: ${_weather!.latitude}, Long: ${_weather!.longitude}", icon: Icons.location_on),
-          const SizedBox(height: 16),
-          BuildInfoCard(label: "Last Sync", value: _weather!.currentTime.replaceAll('T', ' '), icon: Icons.access_time),
-          const SizedBox(height: 16),
-          BuildInfoCard(label: "Temperature", value: "${_weather!.currentTemp}${_weather!.tempUnit}", icon: Icons.thermostat),
-          const SizedBox(height: 16),
-          BuildInfoCard(label: "Humidity", value: "${_weather!.currentHumidity}${_weather!.humidityUnit}", icon: Icons.water_drop),
-          const SizedBox(height: 16),
-          BuildInfoCard(label: "Wind Speed", value: "${_weather!.currentWindSpeed} ${_weather!.windSpeedUnit}", icon: Icons.air),
-        ],
-      ),
-    );
+            const SizedBox(height: 16),
+            BuildInfoCard(label: "Location", value: "Lat: ${_weather!.latitude}, Long: ${_weather!.longitude}", icon: Icons.location_on),
+            const SizedBox(height: 16),
+            BuildInfoCard(label: "Last Sync", value: _weather!.currentTime.replaceAll('T', ' '), icon: Icons.access_time),
+            const SizedBox(height: 16),
+            BuildInfoCard(label: "Temperature", value: "${_weather!.currentTemp}${_weather!.tempUnit}", icon: Icons.thermostat),
+            const SizedBox(height: 16),
+            BuildInfoCard(label: "Humidity", value: "${_weather!.currentHumidity}${_weather!.humidityUnit}", icon: Icons.water_drop),
+            const SizedBox(height: 16),
+            BuildInfoCard(label: "Wind Speed", value: "${_weather!.currentWindSpeed} ${_weather!.windSpeedUnit}", icon: Icons.air),
+          ],
+        ),
+      );
+    }
+    return const SizedBox();
   }
 }

@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:ui_task_2/models/weather_model.dart';
+import 'dart:io';
 
 class WeatherService {
   static const String _url = 
@@ -13,13 +14,25 @@ class WeatherService {
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
         return WeatherModel.fromJson(data);
-      } else {
-        print("API Error: ${response.statusCode}");
-        return null;
+      } 
+      else if (response.statusCode == 404) {
+        throw Exception("Location not found. Please check the coordinates");
+      } 
+      else if (response.statusCode >= 500) {
+        throw Exception("Weather server is down. Please try again later");
+      } 
+      else if (response.statusCode == 400) {
+        throw Exception("Invalid request");
       }
-    } catch (e) {
-      print("Exception fetching weather: $e");
-      return null;
+      else {
+        throw Exception("Error: ${response.statusCode}");
+      }
+    } 
+    on SocketException {
+      throw Exception("No Internet Connection");
+    } 
+    catch (e) {
+      throw Exception(e.toString().replaceAll('Exception: ', ''));
     }
   }
 }
